@@ -1,43 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Equipment index{% endblock %}
+{% block title %}Equipements{% endblock %}
+
+{% block style %}
+
+.card-img-top {
+  display: block;
+  height: 200px;
+  object-fit: contain;
+}
+
+{% endblock %}
 
 {% block main %}
 <div class="main">
-    <h1>Equipment index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>Url</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for equipment in equipment %}
-            <tr>
-                <td>{{ equipment.id }}</td>
-                <td>{{ equipment.name }}</td>
-                <td>{{ equipment.description }}</td>
-                <td>{{ equipment.image }}</td>
-                <td>{{ equipment.url }}</td>
-                <td>
-                    <a href="{{ path('equipment_show', {'id': equipment.id}) }}">show</a>
-                    <a href="{{ path('equipment_edit', {'id': equipment.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('equipment_new') }}">Create new</a>
+    <div class="container">
+        <div class="row">
+            {% for equipment in equipments %}
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
+                    <a href="{{ path('equipment_show', {'id': equipment.id}) }}"><img class="card-img-top" src={{ asset('images/equipments/'~equipment.image) }} alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                        {{ equipment.name }}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucun résultat trouvé</td>
+                </tr>
+            {% endfor %}
+        </div>
+        <a class ="text-white" href="{{ path('equipment_new') }}">Create new</a>
+    </div>
 </div>
 {% endblock %}

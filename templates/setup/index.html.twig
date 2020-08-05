@@ -1,39 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Setup index{% endblock %}
+{% block title %}Setups{% endblock %}
 
 {% block main %}
 <div class="main">
-    <h1>Setup index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for setup in setups %}
-            <tr>
-                <td>{{ setup.id }}</td>
-                <td>{{ setup.name }}</td>
-                <td>{{ setup.description }}</td>
-                <td>
-                    <a href="{{ path('setup_show', {'id': setup.id}) }}">show</a>
-                    <a href="{{ path('setup_edit', {'id': setup.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('setup_new') }}">Create new</a>
+    <div class="container">
+        <div class="row">
+            {% for setup in setups %}
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
+                    <a href="{{ path('setup_show', {'id': setup.id}) }}"><img class="card-img-top" src={{ asset('images/youtubeurs/'~setup.getYoutubeur().image) }} alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                        {{ setup.name }}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucun résultat trouvé</td>
+                </tr>
+            {% endfor %}
+        </div>
+        <a class ="text-white" href="{{ path('setup_new') }}">Create new</a>
+    </div>
 </div>
 {% endblock %}

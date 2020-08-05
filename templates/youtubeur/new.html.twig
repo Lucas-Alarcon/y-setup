@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Youtubeur{% endblock %}
+
+{% block main %}
+<div class="main">
+    <h1>Create new Youtubeur</h1>
+
+    {{ include('youtubeur/_form.html.twig') }}
+
+    <a href="{{ path('youtubeur_index') }}">back to list</a>
+</div>
+{% endblock %}

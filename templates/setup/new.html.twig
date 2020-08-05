@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Setup{% endblock %}
+
+{% block main %}
+<div class="main">
+    <h1>Create new Setup</h1>
+
+    {{ include('setup/_form.html.twig') }}
+
+    <a href="{{ path('setup_index') }}">back to list</a>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ equipment.name }}{% endblock %}
+
+{% block style %}
+
+.card-img-top {
+  display: block;
+  height: 300px;
+  object-fit: contain;
+}
+
+{% endblock %}
+
+{% block main %}
+<div class="main">
+  <div class="container">
+    <div class="row">
+        <div class="card mt-4">
+          <img class="card-img-top img-fluid" src={{ asset('images/equipments/'~equipment.image) }} alt="">
+          <div class="card-body">
+            <h3 class="card-title">{{ equipment.name }}</h3>
+            <p class="card-text">{{ equipment.description }}</p>
+            <span><a href={{ equipment.url }} target = "_blank">Acheter sur Amazon</a></span>
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+            4.0 stars
+          </div>
+      </div>
+    </div>
+
+    <a href="{{ path('equipment_index') }}">back to list</a>
+
+    <a href="{{ path('equipment_edit', {'id': equipment.id}) }}">edit</a>
+
+    {{ include('equipment/_delete_form.html.twig') }}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Youtubeur{% endblock %}
+
+{% block main %}
+<div class="main">
+    <h1>Edit Youtubeur</h1>
+
+    {{ include('youtubeur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('youtubeur_index') }}">back to list</a>
+
+    {{ include('youtubeur/_delete_form.html.twig') }}
+</div>
+{% endblock %}

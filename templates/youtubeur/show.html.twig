@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ youtubeur.name }}{% endblock %}
+
+{% block main %}
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="card m-4">
+                <img class="card-img-top img-fluid" src={{ asset('images/youtubeurs/channels4_banner.jpg') }} alt="">
+                <div class="card-body">
+                    <h3 class="card-title">{{ youtubeur.name }}</h3>
+                    <p class="card-text">{{ youtubeur.description }}</p>
+                    <span><a href={{ youtubeur.url }} target = "_blank">Youtube</a></span>
+                </div>
+            </div>
+        </div>
+        <h3>Ses setups</h3>
+        <div class="row">
+                {% for setup in setups %}
+                <div class="m-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="{{ path('setup_show', {'id': setup.id}) }}">{{ setup.name }}</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                    <tr>
+                        <td colspan="6">Aucun résultat trouvé</td>
+                    </tr>
+                {% endfor %}
+        </div>
+
+        <a href="{{ path('youtubeur_index') }}">back to list</a>
+
+        <a href="{{ path('youtubeur_edit', {'id': youtubeur.id}) }}">edit</a>
+
+        {{ include('youtubeur/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

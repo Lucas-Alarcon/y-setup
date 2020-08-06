@@ -19,6 +19,16 @@ class SetupRepository extends ServiceEntityRepository
         parent::__construct($registry, Setup::class);
     }
 
+    public function latestSetupsReleased()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.id', 'DESC')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Setup[] Returns an array of Setup objects
     //  */

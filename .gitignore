@@ -61,4 +61,4 @@
 /.env
 
 # Migration
-/src/Migrations/*
+/migrations/*

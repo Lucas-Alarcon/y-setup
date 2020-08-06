@@ -44,6 +44,11 @@ class Youtubeur
      */
     private $setups;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image2;
+
     public function __construct()
     {
         $this->setups = new ArrayCollection();
@@ -136,5 +141,17 @@ class Youtubeur
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    public function getImage2(): ?string
+    {
+        return $this->image2;
+    }
+
+    public function setImage2(?string $image2): self
+    {
+        $this->image2 = $image2;
+
+        return $this;
     }
 }

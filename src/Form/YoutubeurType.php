@@ -17,7 +17,29 @@ class YoutubeurType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('image', FileType::class, [
-                'label' => 'Image',
+                'label' => 'Image Profil',
+
+                // unmapped means that this field is not associated to any entity property
+                'mapped' => false,
+
+                // make it optional so you don't have to re-upload the PDF file
+                // every time you edit the Product details
+                'required' => false,
+
+                // unmapped fields can't define their validation using annotations
+                // in the associated entity, so you can use the PHP constraint classes
+                'constraints' => [
+                    new File([
+                        'maxSize' => '5M',
+                        'mimeTypes' => [
+                            'image/*',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid image',
+                    ])
+                ],
+            ])
+            ->add('image2', FileType::class, [
+                'label' => 'Image Bannière',
 
                 // unmapped means that this field is not associated to any entity property
                 'mapped' => false,

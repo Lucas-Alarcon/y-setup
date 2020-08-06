@@ -39,8 +39,13 @@ class YoutubeurController extends AbstractController
 
             $image = $form->get('image')->getData();
             if ($image) {
-                $imageFileName = $fileUploader->upload($image, 'images_youtubeurs_directory');
+                $imageFileName = $fileUploader->upload($image, 'images_youtubeurs_profil_directory');
                 $youtubeur->setImage($imageFileName);
+            }
+            $image2 = $form->get('image2')->getData();
+            if ($image2) {
+                $imageFileName = $fileUploader->upload($image2, 'images_youtubeurs_banner_directory');
+                $youtubeur->setImage2($imageFileName);
             }
 
             $entityManager = $this->getDoctrine()->getManager();

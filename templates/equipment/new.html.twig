@@ -4,10 +4,12 @@
 
 {% block main %}
 <div class="main">
-    <h1>Create new Equipment</h1>
+    <div class="container">
+        <h1>Create new Equipment</h1>
 
-    {{ include('equipment/_form.html.twig') }}
+        {{ include('equipment/_form.html.twig') }}
 
-    <a href="{{ path('equipment_index') }}">back to list</a>
+        <a href="{{ path('equipment_index') }}">back to list</a>
+    </div>
 </div>
 {% endblock %}

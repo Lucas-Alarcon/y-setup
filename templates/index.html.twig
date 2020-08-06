@@ -8,27 +8,34 @@
             <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{ path('setup_index')}}">Chercher mon setup !</a>
         </div>
     </header>
-    <!-- Youtubeurs Grid-->
-    <section class="page-section bg-light" id="youtubeur">
+    <!-- Setups Grid-->
+    <section class="page-section bg-light" id="setup">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Youtubeurs</h2>
-                <h3 class="section-subheading">Liste des derniers setups sorties</h3>
+                <h2 class="section-heading text-uppercase">Les derniers setups de youtubeurs :</h2>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <div class="youtubeur-item">
-                        <a class="youtubeur-link" data-toggle="modal" href="#youtubeurModal1">
-                            <div class="youtubeur-hover">
-                                <div class="youtubeur-hover-content"><i class="fas fa-arrow-up fa-3x"></i></div>
+            {% for setup in setups %}
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="setup-item card h-100">
+                        <a class="setup-link" href="{{ path('setup_show', {'id': setup.id}) }}">
+                            <div class="setup-hover">
+                                <i class="fas fa-arrow-up fa-3x"></i>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt="" />
+                            <img class="card-img-top" src={{ asset('images/youtubeurs/profil/'~setup.getYoutubeur().image) }} alt="">
                         </a>
-                        <div class="youtubeur-caption">
-                            <div class="youtubeur-caption-subheading text-muted">Illustration</div>
+                        <div class="card-body setup-caption">
+                            <h4 class="card-title setup-caption-heading text-muted">
+                            {{ setup.name }}
+                            </h4>
                         </div>
                     </div>
                 </div>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucun résultat trouvé</td>
+                </tr>
+            {% endfor %}
             </div>
         </div>
     </section>

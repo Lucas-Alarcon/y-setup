@@ -4,10 +4,12 @@
 
 {% block main %}
 <div class="main">
-    <h1>Create new Youtubeur</h1>
+    <div class="container">
+        <h1>Create new Youtubeur</h1>
 
-    {{ include('youtubeur/_form.html.twig') }}
+        {{ include('youtubeur/_form.html.twig') }}
 
-    <a href="{{ path('youtubeur_index') }}">back to list</a>
+        <a href="{{ path('youtubeur_index') }}">back to list</a>
+    </div>
 </div>
 {% endblock %}

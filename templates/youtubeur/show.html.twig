@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="card m-4">
-                <img class="card-img-top img-fluid" src={{ asset('images/youtubeurs/channels4_banner.jpg') }} alt="">
+                <img class="card-img-top img-fluid" src={{ asset('images/youtubeurs/banner/'~youtubeur.image2) }} alt="">
                 <div class="card-body">
                     <h3 class="card-title">{{ youtubeur.name }}</h3>
                     <p class="card-text">{{ youtubeur.description }}</p>
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <h3>Ses setups</h3>
+        <h3>Setups</h3>
         <div class="row">
                 {% for setup in setups %}
                 <div class="m-4">

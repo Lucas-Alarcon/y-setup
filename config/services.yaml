@@ -5,7 +5,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     images_directory: '%kernel.project_dir%/public/images'
-    images_youtubeurs_directory: '%kernel.project_dir%/public/images/youtubeurs'
+    images_youtubeurs_profil_directory: '%kernel.project_dir%/public/images/youtubeurs/profil'
+    images_youtubeurs_banner_directory: '%kernel.project_dir%/public/images/youtubeurs/banner'
     images_equipments_directory: '%kernel.project_dir%/public/images/equipments'
 
 services:
